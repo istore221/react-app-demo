@@ -1,0 +1,233 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+@mixin background-size($size) {
+
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+
+@mixin animation($animation) {
+
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+  -ms-animation:$animation;
+}
+
+@mixin keyframes($animation-name) {
+
+  @-webkit-keyframes #{$animation-name} {
+    @content; // your animation logic parsed here
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+
+@mixin mobile() {
+
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 767px){
+      @content;
+  }
+
+
+}
+
+
+@mixin transform($translate) {
+
+  -webkit-transform: $translate;
+  -ms-transform: $translate;
+  transform: $translate;
+}
+
+@mixin transition($transition) {
+
+  -webkit-transition:$transition;
+  -moz-transition:$transition;
+  -o-transition: $transition;
+  -ms-transition: $transition;
+  transition: $transition;
+}
+
+@mixin box-shadow($shadow) {
+
+  -moz-box-shadow:    $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow:         $shadow;
+
+}
+
+@mixin linear-gradient($options,$fallback) {
+
+  background: $fallback; /* fallback for old browsers */
+  background: -webkit-linear-gradient($options); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient($options); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin filter($options) {
+
+  -webkit-filter: $options;
+  filter: $options;
+
+}
+@mixin appearance($value){
+
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  -o-appearance: $value;
+  -ms-appearance: $value;
+  appearance: $value;
+
+}
+
+
+
+
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+     -moz-box-flex: $values;
+      -webkit-flex: $values;
+  	  -ms-flex: $values;
+  	      flex: $values;
+}
+
+
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+     -moz-flex-direction: $direction;
+      -ms-flex-direction: $direction;
+          flex-direction: $direction;
+}
+
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+     -moz-flex-wrap: $wrap;
+      -ms-flex-wrap: $wrap;
+          flex-wrap: $wrap;
+}
+
+
+@mixin flex-flow($flow) {
+  -webkit-flex-flow: $flow;
+     -moz-flex-flow: $flow;
+      -ms-flex-flow: $flow;
+          flex-flow: $flow;
+}
+
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+     -moz-box-ordinal-group: $val;
+  	     -ms-flex-order: $val;
+  	      -webkit-order: $val;
+  		      order: $val;
+}
+
+
+@mixin flex-grow($grow) {
+  -webkit-flex-grow: $grow;
+     -moz-flex-grow: $grow;
+      -ms-flex-grow: $grow;
+          flex-grow: $grow;
+}
+
+
+@mixin flex-shrink($shrink) {
+  -webkit-flex-shrink: $shrink;
+     -moz-flex-shrink: $shrink;
+      -ms-flex-shrink: $shrink;
+          flex-shrink: $shrink;
+}
+
+
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+     -moz-flex-basis: $width;
+      -ms-flex-basis: $width;
+          flex-basis: $width;
+}
+
+
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+      -ms-justify-content: $justify;
+          justify-content: $justify;
+            -ms-flex-pack: $justify;
+}
+
+
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+     -moz-align-content: $align;
+      -ms-align-content: $align;
+          align-content: $align;
+}
+
+
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+     -moz-align-items: $align;
+      -ms-align-items: $align;
+          align-items: $align;
+}
+
+
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+     -moz-align-self: $align;
+      -ms-align-self: $align;
+          align-self: $align;
+}

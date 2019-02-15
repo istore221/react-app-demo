@@ -1,0 +1,112 @@
+@import '../const';
+@import '../mixins';
+
+$border-color:#E9EAEE;
+
+.base-control{
+
+	 border: 1px solid $border-color;
+	 @include border-radius(0);
+	 @include box-shadow(none);
+	 @include appearance(none);
+	 @include placeholder {
+		  color: lighten(gray,20%);
+			font-size: 1.1rem;
+	 };
+
+   &:focus{
+      border: 1px solid darken($border-color, 10%);
+      @include box-shadow(none);
+   }
+}
+
+.form-control{
+    @extend .base-control;
+    width:100%;
+    font-size: 1.2rem;
+}
+
+
+@each $key, $val in $colors {
+
+ .form-group.has-#{$key}{
+ 	.form-control{
+ 		@include box-shadow(none);
+ 		border: 1px solid $val !important;
+ 	}
+ }
+
+}
+
+
+
+
+
+select.form-control{
+
+    background: url('../assets/images/down-arrow.png') no-repeat right;
+    background-size:20px 20px;
+
+ }
+
+ $genmap: (checkbox,radio);
+
+
+ @each $key, $val in $genmap {
+
+   $width:21px;
+   $height:21px;
+
+
+ 	div.#{$key}{
+
+ 		input[type="#{$key}"]{
+
+          display:none;
+     }
+
+     label{
+
+       padding-left: 0px;
+			 font-size: 1.1rem;
+
+       span{
+         width: $width;
+         height: $width;
+         display: inline-block;
+         vertical-align:middle;
+         background: url('../assets/images/radio-checkbox_bg.png') no-repeat left;
+         @if $key == 'radio' {
+            background-position: ($width*2)* -1 0;
+         }
+
+       }
+
+     }
+
+     input[type='#{$key}']:checked + span {
+          @if $key == 'checkbox' {
+             background-position:   ($width*-1) 0;
+          }
+          @if $key == 'radio' {
+             background-position: ($width*3)* -1 0;
+          }
+
+     }
+
+     input[type='#{$key}']:disabled + span {
+
+         @if $key == 'checkbox' {
+               background-position: ($width*2)* -1 0;
+          }
+          @if $key == 'radio' {
+             background-position: ($width*2)* -1 0;
+          }
+
+     }
+
+
+
+ 	}
+
+ }

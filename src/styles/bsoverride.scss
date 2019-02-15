@@ -1,0 +1,171 @@
+@import "const";
+@import "mixins";
+/* --- well */
+.well{
+  height:50px;
+  line-height: 15px;
+  color:#9B9B9B;
+  background-color: key-get($colors,'gray');
+  border:none;
+  font-size: 1.2rem;
+  @include border-radius(0px);
+  @include box-shadow(none);
+}
+/* --- well */
+
+/* --- nav-tabs */
+
+.active-tab{
+  border-top:1px solid transparent !important;
+  border-left:1px solid transparent !important;
+  border-right:1px solid transparent !important;
+  border-bottom:2px solid map-get($colors,'primary') !important;
+  color:map-get($colors,'primary');
+
+}
+
+
+.nav-tabs{
+
+  border: none;
+  background-color: white;
+  font-weight: 400;
+
+  > li {
+     float:none;
+     display:inline-block;
+     text-align: center;
+     font-size: 1.2rem;
+
+     a{
+       color: gray;
+       padding: 10px;
+       @include border-radius(0px !important);
+       &:hover{
+         @extend .active-tab;
+         background-color: transparent !important;
+       }
+    }
+
+    &.active{
+        a{
+          border-top: none !important;
+          border-left: none !important;
+          border-right: none !important;
+          background-color: transparent !important;
+          @extend .active-tab;
+
+        }
+    }
+ }
+
+
+
+
+
+
+
+}
+/* --- nav-tabs */
+
+
+
+/* --- panels */
+.panel{
+  border: 0px;
+  @include box-shadow(none);
+
+
+  .panel-heading{
+    background-color: white;
+    border: 0px;
+    font-size: 1.2rem;
+    position: relative;
+  }
+
+  .panel-body{
+    font-size: 1.2rem;
+  }
+}
+/* --- panels */
+
+/* --- table */
+
+
+.react-bs-table-container{
+  .react-bs-table,.react-bs-table-bordered{
+      border: none;
+  }
+  .table{
+    border: none !important;
+
+    tr{
+      td,th{
+          border: none !important;
+      }
+    }
+    thead{
+      tr{
+        border-bottom: 1px solid rgba(map-get($colors,'primary'),.2);
+          th{
+            padding: 15px;
+            opacity: .8;
+          }
+      }
+    }
+    tbody{
+      tr{
+        border-bottom: 1px solid rgba(gray,.1);
+
+        &:hover{
+          background-color: transparent;
+          color: map-get($colors,'primary');
+        }
+      }
+
+    }
+
+  }
+}
+
+
+
+
+/* --- table */
+
+
+/* label */
+
+$lblsize: (
+ sm: 1rem,
+ md: 1.1rem,
+ lg: 20px
+ );
+
+ .label{
+   font-weight: normal;
+ }
+ @each $label,$value in $lblsize {
+      .label-#{$label}{
+        font-size:$value;
+      }
+ }
+
+@each $label,$value in $colors {
+     .label-#{$label}{
+       background-color:$value;
+     }
+}
+
+/* label */
+
+
+/* progress */
+
+.progress{
+  @include box-shadow(none);
+  @include border-radius(0px);
+  height: 3px;
+}
+
+/* progress */

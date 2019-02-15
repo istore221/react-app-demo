@@ -1,0 +1,34 @@
+@import '../const';
+@import '../mixins';
+
+
+
+
+.btn{
+
+		@include border-radius(0);
+		color:white;
+    border: none;
+		font-size: 1.1rem;
+		padding: 8px 12px;
+	
+
+		&.btn-sm{
+			padding: 6px 12px;
+		}
+
+		&.btn-lg{
+			padding: 12px 12px;
+		}
+}
+
+@each $key, $val in $colors {
+ .btn-#{$key} {
+   @extend .btn;
+   background-color: $val;
+ }
+
+ .btn-#{$key}:hover,.btn-#{$key}:active,.btn-#{$key}:focus{
+   background-color:darken($val,5%);
+ }
+}

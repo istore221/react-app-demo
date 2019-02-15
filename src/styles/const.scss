@@ -1,0 +1,131 @@
+@import 'mixins';
+
+$colors: (
+ primary: #5890FF,
+ success: #7ED321,
+ info: #59ABE3,
+ danger: #FF5F2E,
+ warning: #FF9700,
+ default: #E4F1FE,
+ gray: #F8F6F9
+ );
+ $sidebar-color:#404E66;
+
+ @each $key, $val in $colors {
+  .bg-#{$key} {
+    background: $val;
+  }
+ }
+
+
+ @each $key, $val in $colors {
+  .text-#{$key} {
+    color: $val !important;
+  }
+ }
+
+
+ @for $i from 0.0 through 1.0 {
+   .op-#{$i}{
+     opacity:#{$i}
+   }
+ }
+
+$sides: (top, bottom, left, right);
+
+
+
+ @for $i from 1 through 25 {
+
+   @each $side in $sides {
+
+     .m-#{str-slice($side, 0, 1)}-#{$i} {
+       margin-#{$side}: #{$i}px !important;
+     }
+
+     .p-#{str-slice($side, 0, 1)}-#{$i} {
+       padding-#{$side}: #{$i}px !important;
+     }
+
+   }
+
+   .p-#{$i} {
+     padding: #{$i}px !important;
+   }
+
+ }
+
+
+ @each $side in $sides {
+
+     @for $i from 1 through 25 {
+       .#{str-slice($side, 0, 1)}-#{$i}{
+         #{$side}:#{$i}px !important;
+       }
+       .#{str-slice($side, 0, 1)}-#{$i}-inverse{
+         #{$side}:#{$i*-1}px !important;
+       }
+     }
+
+  }
+
+
+  @for $i from 0 through 10 {
+
+  @if $i == 0 {
+    .op-#{$i}{
+      opacity: #{$i}
+    }
+
+  }@else if $i == 10{
+    .op-1{
+      opacity: 1
+    }
+  }
+  @else{
+    .op-#{$i}{
+      opacity: #{'.'}#{$i}
+    }
+  }
+
+
+
+
+}
+
+.cursor-pointer{
+  cursor: pointer !important;
+}
+
+.no-padding{
+  padding: 0px !important;
+}
+
+.no-margin{
+    margin: 0px !important;
+}
+
+.text-capitalize{
+  text-transform: capitalize !important;
+}
+
+  .inline-block{
+    display: inline-block !important;
+  }
+
+
+ .absolute{
+   position: absolute !important;
+ }
+
+
+.color-box{
+  width: 80px;
+  height: 55px;
+}
+
+.color-circle{
+  width: 12px;
+  height: 12px;
+  @include border-radius(50%);
+}

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      args:
+        BUILD_ENV: ${BUILD_ENV}
+        PORT: ${PORT}
+    image: "istore221/athena-dashboard-ui:${VERSION}"
+    ports:
+     - "80:${PORT}"
+networks:
+  default:
+    external:
+      name: athena
